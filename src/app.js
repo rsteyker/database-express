@@ -2,6 +2,7 @@
 const express = require("express");
 const db = require('./utils/database');
 const Users = require('./models/users.model');
+const cors = require('cors');
 require('dotenv').config();
 
 const PORT  = process.env.PORT || 8000;
@@ -21,6 +22,7 @@ db.sync() //Sincroniza el modelo con la bd
 const app = express();
 
 //Sirve para extraer datos en objeto en js
+app.use(cors());
 app.use(express.json());
 
 

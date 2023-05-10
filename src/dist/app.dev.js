@@ -7,6 +7,8 @@ var db = require('./utils/database');
 
 var Users = require('./models/users.model');
 
+var cors = require('cors');
+
 require('dotenv').config();
 
 var PORT = process.env.PORT || 8000; // Creamos una instancia de express llamado app
@@ -26,6 +28,7 @@ db.sync() //Sincroniza el modelo con la bd
 });
 var app = express(); //Sirve para extraer datos en objeto en js
 
+app.use(cors());
 app.use(express.json());
 app.get("/", function (req, res) {
   res.send("Servidor funcionando...");
